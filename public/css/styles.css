@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
+:root {
+  --purple: #A683E3;
+  --cyan: #16BA95;
+}
+
 html {
     background-color: #E4E9FD;
-    background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+    background-image: -webkit-linear-gradient(65deg, var(--purple) 50%, #E4E9FD 50%);
     min-height: 1000px;
     font-family: 'poppins';
   }
@@ -23,7 +28,7 @@ html {
   }
   
   #heading {
-    background-color: #A683E3;
+    background-color: var(--purple);
     text-align: center;
   }
   
@@ -40,7 +45,7 @@ html {
   
   input:checked+p {
     text-decoration: line-through;
-    text-decoration-color: #A683E3;
+    text-decoration-color: var(--purple);
   }
   
   input[type="checkbox"] {
@@ -65,7 +70,7 @@ html {
     width: 50px;
     border-radius: 50%;
     border-color: transparent;
-    background-color: #A683E3;
+    background-color: var(--purple);
     color: #fff;
     font-size: 30px;
 
@@ -86,7 +91,7 @@ html {
   
   input[type="text"]:focus {
     outline: none;
-    box-shadow: inset 0 -3px 0 0 #A683E3;
+    box-shadow: inset 0 -3px 0 0 var(--purple);
   }
   
   ::placeholder {
