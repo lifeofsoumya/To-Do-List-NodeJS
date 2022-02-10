@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000; // setting up port on PORT or 3000
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
 app.use(bodyParser.urlencoded({extended:true})); //parses incoming request bodies in a middleware before you handle it
-app.use(express.static("public"));
+app.use(express.static("public")); // use public folder to access static files like css
 
 let items = ["First item", "Second item"]; // init array for all to do li elements 
 

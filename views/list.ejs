@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('header'); -%>
 
-<head>
-    <meta charset="UTF-8">
-    <title>To do List</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-
-<body>
 
     <div class="box" id="heading">
         <h1>
@@ -17,7 +9,7 @@
 
     <div class="box">
         <% for (var i=0; i< newListItems.length; i++){ %>
-            <div class="item"> 
+            <div class="item">
                 <input type="checkbox">
                 <p>
                     <%= newListItems[i] %>
@@ -25,13 +17,10 @@
             </div>
             <% } %>
                 <form class="item" action="/" method="post">
-                    <input type="text" name="newItem" placeholder="New Item">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
                     <button type="submit" name="button">+</button>
                 </form>
     </div>
 
 
-
-</body>
-
-</html>
+    <%- include('footer'); -%>
