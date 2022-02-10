@@ -39,3 +39,5 @@ app.post ("/", (req, res) =>{
 app.listen(port, ()=>{
     console.log(`Server listening to ${port}`); // server started at port
 })
+
+// basic prototype is ready
