@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({extended:true})); //parses incoming request bodie
 app.use(express.static("public")); // use public folder to access static files like css
 
 let items = ["First item", "Second item"]; // init array for all to do li elements 
+let workItems = []; //init array for work items list
+
+
+
 
 app.get("/", (req, res) => {
 
@@ -24,18 +28,32 @@ app.get("/", (req, res) => {
 
     let day = today.toLocaleDateString("en-US", options); // returns a Date object as a string
 
-    res.render("list", {kindOfDay: day, newListItems: items }); // use res.render to load up an ejs view file
+    res.render("list", {listTitle: day, newListItems: items }); // use res.render to load up an ejs view file
     // it renders list.ejs file and passes the kindOfDay and newListItems variable values
 });
+
 
 app.post ("/", (req, res) =>{
 
     let item = req.body.newItem; // accepts 'newItem' data from the client side input form and stores in item var
 
-    items.push(item); // pushes new item to the items array
-
-    res.redirect("/"); //sends request to home page after inserting item to array
+    if (req.body.list === "work") { // checks if the req was done from the /work route, form name=list, value=work if request is done from /work route
+        workItems.push(item);  // push new received item to workItems array
+        res.redirect("/work");
+    } else {        
+        items.push(item); // pushes new item to the items array    
+        res.redirect("/"); //sends request to home page after inserting item to array
+    } 
+    
 })
+
+
+
+
+app.get("/work", (req, res) =>{ //asks for work route
+    res.render("list", {listTitle: "work", newListItems: workItems});
+}) 
+
 
 app.listen(port, ()=>{
     console.log(`Server listening to ${port}`); // server started at port
