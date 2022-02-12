@@ -33,12 +33,6 @@ html {
     }
     
   }
-  
-  @media screen and (max-width:1280px) {
-    .header-nav{
-      margin-bottom:140px;
-    }
-  }
 
   #heading {
     background-color: var(--purple);
@@ -119,5 +113,15 @@ html {
     text-align: center;
   }
   
-
   
+/* header styling */
+
+  #menu{
+    padding-left:13px;
+  }
+
+  @media screen and (max-width:1280px) {
+    .header-nav{
+      margin-bottom:140px;
+    }
+  }
