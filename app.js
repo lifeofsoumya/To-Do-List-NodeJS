@@ -56,9 +56,15 @@ app.get("/", (req, res) => {
     let day = today.toLocaleDateString("en-US", options); // returns a Date object as a string
 
     Item.find({}, (err, foundItems)=>{ // {} finds everything, foundItems contains everything
-        
-        res.render("list", {listTitle: day, newListItems: foundItems }); // use res.render to load up an ejs view file
+        try { // tries rendering if all okay
+
+            res.render("list", {listTitle: day, newListItems: foundItems }); // use res.render to load up an ejs view file
     // it renders list.ejs file and passes the kindOfDay and newListItems variable values
+            }
+        catch(err) { // catches any error in this function and console logs it
+            console.log(err);
+            }
+        
     
     })
 
