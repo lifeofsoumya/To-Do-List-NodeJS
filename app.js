@@ -95,7 +95,16 @@ app.post ("/", (req, res) =>{
     // } 
 })
 
+app.post("/delete", (req, res)=>{ // route for deleting a task using form onchange this.form.submit
+    const checkedItemId = req.body.checkbox; // gets which checkbox was checked in the form and grabs the id
 
+    Item.findByIdAndRemove(checkedItemId, function(err){ // we must have a callback even if you don't want to check error, else the remove method won't work
+        if (!err){
+            console.log('successfully deleted'); 
+        }
+        res.redirect('/')
+    })
+})
 
 
 app.get("/work", (req, res) =>{ //asks for work route
