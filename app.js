@@ -39,9 +39,6 @@ const item3 = new Item({
 
 const defaultItems = [item1, item2, item3] // creating an array with previously created items
 
-Item.insertMany(defaultItems, (err)=>{ // insert newly created array to Item
-    console.log('error in inserting')
-});
 
 app.get("/", (req, res) => {
 
@@ -56,15 +53,20 @@ app.get("/", (req, res) => {
     let day = today.toLocaleDateString("en-US", options); // returns a Date object as a string
 
     Item.find({}, (err, foundItems)=>{ // {} finds everything, foundItems contains everything
-        try { // tries rendering if all okay
+        
+            if(foundItems.length==0){ //checks if the foundItems array is empty or not, if empty then save
+                Item.insertMany(defaultItems, (err)=>{ // insert newly created array to Item
+                    if (err){
+                        console.log('error in inserting')
+                    }
+                    else {
+                        console.log('Successfully saved')
+                    }
+                });
+            }
 
             res.render("list", {listTitle: day, newListItems: foundItems }); // use res.render to load up an ejs view file
     // it renders list.ejs file and passes the kindOfDay and newListItems variable values
-            }
-        catch(err) { // catches any error in this function and console logs it
-            console.log(err);
-            }
-        
     
     })
 
