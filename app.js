@@ -63,11 +63,12 @@ app.get("/", (req, res) => {
                         console.log('Successfully saved')
                     }
                 });
-            }
+                res.redirect('/'); // redirects to home route after inserting array or skipping inserting
+            } else{
 
-            res.render("list", {listTitle: day, newListItems: foundItems }); // use res.render to load up an ejs view file
-    // it renders list.ejs file and passes the kindOfDay and newListItems variable values
-    
+                res.render("list", {listTitle: day, newListItems: foundItems }); // use res.render to load up an ejs view file
+                    // it renders list.ejs file and passes the kindOfDay and newListItems variable values
+                    }
     })
 
 });
@@ -75,16 +76,23 @@ app.get("/", (req, res) => {
 
 app.post ("/", (req, res) =>{
 
-    let item = req.body.newItem; // accepts 'newItem' data from the client side input form and stores in item var
+    const itemName = req.body.newItem; // accepts 'newItem' data from the client side input form and stores in itemName var
 
-    if (req.body.list === "work") { // checks if the req was done from the /work route, form name=list, value=work if request is done from /work route
-        workItems.push(item);  // push new received item to workItems array
-        res.redirect("/work");
-    } else {        
-        items.push(item); // pushes new item to the items array    
-        res.redirect("/"); //sends request to home page after inserting item to array
-    } 
+    const item = new Item({ // storing input in item schema with Item model
+        name: itemName
+    });
+
+    item.save(); // saving input 
+
+    res.redirect('/'); // redirect home route after saving
     
+    // if (req.body.list === "work") { // checks if the req was done from the /work route, form name=list, value=work if request is done from /work route
+    //     workItems.push(item);  // push new received item to workItems array
+    //     res.redirect("/work");
+    // } else {        
+    //     items.push(item); // pushes new item to the items array    
+    //     res.redirect("/"); //sends request to home page after inserting item to array
+    // } 
 })
 
 
