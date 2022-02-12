@@ -30,14 +30,11 @@ const item1 = new Item({ // creating a new item from the Item Model
 }); 
 
 const item2 = new Item({
-    name: "Welcome to ToDoList"
+    name: "'+' to Add & Check to Delete Tasks"
 }); 
 
-const item3 = new Item({
-    name: "Welcome to ToDoList"
-}); 
 
-const defaultItems = [item1, item2, item3] // creating an array with previously created items
+const defaultItems = [item1, item2] // creating an array with previously created items
 
 
 app.get("/", (req, res) => {
@@ -101,8 +98,9 @@ app.post("/delete", (req, res)=>{ // route for deleting a task using form onchan
     Item.findByIdAndRemove(checkedItemId, function(err){ // we must have a callback even if you don't want to check error, else the remove method won't work
         if (!err){
             console.log('successfully deleted'); 
+            res.redirect('/')
         }
-        res.redirect('/')
+        
     })
 })
 
