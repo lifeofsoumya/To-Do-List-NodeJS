@@ -113,7 +113,3 @@ app.get("/trash", (req, res) =>{ //asks for trash route
 app.listen(port, ()=>{
     console.log(`Server listening to ${port}`); // server started at port
 })
-
-
-
-
