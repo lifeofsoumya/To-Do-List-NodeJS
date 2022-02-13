@@ -38,7 +38,7 @@ html {
     border-radius: 7px;
   }
   #heading h1{
-    font-size:19px;
+    font-size:21px;
   }
   
   .item {
@@ -131,12 +131,9 @@ html {
   .checkbox{
     -webkit-appearance: none;
     position: relative;
-    width: 26px;
-    height: 26px;
-    border-radius: 8px;
-    padding-right:6px;
+    width: 22px;
+    height: 22px;
     background-image: url("/assets/trash-bin.png");
     background-size: 22px ;
-    border: 2px solid #fff;
     cursor:pointer;
 }
