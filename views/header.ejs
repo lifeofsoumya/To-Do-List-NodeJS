@@ -6,406 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <title>To do List</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+        .hidden {
+            display: none;
+        }
+        .nav-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            color: black;
+            padding-left: 3px;
+        }
+        .mainav {
+            box-shadow: 0 4px 6px -6px #6C6C6C;
+        }
+        
+        
+    </style>
 </head>
 
 <body>
 
-    <div class="header-nav">
-        <div class="h-full w-full">
-            <!-- Code block starts -->
-            <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-            <nav role="navigation" class="bg-white shadow xl:block hidden">
-                <div class="mx-auto container px-6 py-2 xl:py-0">
-                    <div class="flex items-center justify-between">
-                        <div class="inset-y-0 left-0 flex items-center xl:hidden">
-                            <div
-                                class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-100 focus:outline-none transition duration-150 ease-in-out">
-                                <div class="visible xl:hidden">
-                                    <ul
-                                        class="p-2 border-r bg-white absolute rounded left-0 right-0 shadow mt-8 md:mt-8 hidden">
-                                        <li
-                                            class="flex xl:hidden cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                                            <div class="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-grid" width="20" height="20"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                    <rect x="4" y="4" width="6" height="6" rx="1"></rect>
-                                                    <rect x="14" y="4" width="6" height="6" rx="1"></rect>
-                                                    <rect x="4" y="14" width="6" height="6" rx="1"></rect>
-                                                    <rect x="14" y="14" width="6" height="6" rx="1"></rect>
-                                                </svg>
-                                                <span class="ml-2 font-bold">Dashboard</span>
-                                            </div>
-                                        </li>
-                                        <li class="flex xl:hidden flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none flex justify-center"
-                                            onclick="dropdownHandler(this)">
-                                            <div class="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-puzzle" width="20" height="20"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                    <path
-                                                        d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
-                                                    </path>
-                                                </svg>
-                                                <span class="ml-2 font-bold">Products</span>
-                                            </div>
-                                        </li>
-                                        <li
-                                            class="flex xl:hidden cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-compass" width="20" height="20"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
-                                                <circle cx="12" cy="12" r="9"></circle>
-                                            </svg>
-                                            <span class="ml-2 font-bold">Performance</span>
-                                        </li>
-                                        <li
-                                            class="border-b border-gray-300 flex xl:hidden cursor-pointer text-gray-600 text-sm leading-3 tracking-normal pt-2 pb-4 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                class="icon icon-tabler icon-tabler-code" width="20" height="20"
-                                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                <polyline points="7 8 3 12 7 16"></polyline>
-                                                <polyline points="17 8 21 12 17 16"></polyline>
-                                                <line x1="14" y1="4" x2="10" y2="20"></line>
-                                            </svg>
-                                            <span class="ml-2 font-bold">Deliverables</span>
-                                        </li>
-                                        <li
-                                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 flex items-center focus:text-indigo-700 focus:outline-none">
-                                            <div class="flex items-center">
-                                                <div
-                                                    class="w-12 cursor-pointer flex text-sm border-2 border-transparent rounded focus:outline-none focus:border-white transition duration-150 ease-in-out">
-                                                    <img class="rounded h-10 w-10 object-cover"
-                                                        src="https://tuk-cdn.s3.amazonaws.com/assets/components/horizontal_navigation/hn_1.png"
-                                                        alt="logo" />
-                                                </div>
-                                                <p class="text-sm ml-2 cursor-pointer">Jane Doe</p>
-                                                <div class="sm:ml-2 text-white relative">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler icon-tabler-chevron-down cursor-pointer"
-                                                        width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                        <polyline points="6 9 12 15 18 9"></polyline>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li
-                                            class="cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                                            <div class="flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                    class="icon icon-tabler icon-tabler-user" width="20" height="20"
-                                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                    fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                    <circle cx="12" cy="7" r="4" />
-                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                                                </svg>
-                                                <span class="ml-2">Profile</span>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <svg onclick="MenuHandler(this,true)" aria-haspopup="true" aria-label="Main Menu"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="show-m-menu icon icon-tabler icon-tabler-menu" width="28" height="28"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z"></path>
-                                        <line x1="4" y1="8" x2="20" y2="8"></line>
-                                        <line x1="4" y1="16" x2="20" y2="16"></line>
-                                    </svg>
-                                </div>
-                                <div class="hidden close-m-menu text-gray-700" onclick="MenuHandler(this,false)">
-                                    <svg aria-label="Close" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" />
-                                        <line x1="18" y1="6" x2="6" y2="18" />
-                                        <line x1="6" y1="6" x2="18" y2="18" />
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+    <div class="mainav">
+        <div class="container">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <a class="navbar-brand" href="#">
+                    <img src="https://cdn.discordapp.com/attachments/853528986834305044/942422619007910008/mainicon.png"
+                        alt="Bootstrap" width="30" class="d-inline-block align-top">
+                    <span class="nav-title">TO DO LIST</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="toggleMobileMenu">
 
-                        <div class="flex items-center">
-                            <img src="https://cdn.discordapp.com/attachments/795866620412428330/929326810607550464/access-perk.png"
-                                width="150px">
-                        </div>
+                    <ul class="navbar-nav ms-auto text-center">
+                        <li>
+                            <a class="nav-link" href="/done"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24">
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                    <path fill="#27ae60"
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg>
+                                <span class="nav-title">Accomplished</span></a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/trash"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path
+                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                    </path>
+                                    <line x1="10" y1="11" x2="10" y2="17"></line>
+                                    <line x1="14" y1="11" x2="14" y2="17"></line>
+                                </svg><span class="nav-title">Trash</span></a>
+                        </li>
 
-                        <div class="flex">
-                            <div class="hidden xl:flex md:mr-6 xl:mr-16">
-                                <a href="javascript: void(0)"
-                                    class="focus:text-indigo-700 border-b-2 border-transparent focus:border-indigo-700 flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
-                                    <span class="mr-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-grid" width="20" height="20"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                            <rect x="4" y="4" width="6" height="6" rx="1"></rect>
-                                            <rect x="14" y="4" width="6" height="6" rx="1"></rect>
-                                            <rect x="4" y="14" width="6" height="6" rx="1"></rect>
-                                            <rect x="14" y="14" width="6" height="6" rx="1"></rect>
-                                        </svg>
-                                    </span>
-                                    Dashboard
-                                </a>
-                                <a href="javascript: void(0)"
-                                    class="focus:text-indigo-700 border-b-2 border-transparent focus:border-indigo-700 flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
-                                    <span class="mr-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-puzzle" width="20" height="20"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                            <path
-                                                d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
-                                            </path>
-                                        </svg>
-                                    </span>
-                                    Products
-                                </a>
-                                <a href="javascript: void(0)"
-                                    class="focus:text-indigo-700 border-b-2 border-transparent focus:border-indigo-700 flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
-                                    <span class="mr-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-compass" width="20" height="20"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                            <polyline points="8 16 10 10 16 8 14 14 8 16"></polyline>
-                                            <circle cx="12" cy="12" r="9"></circle>
-                                        </svg>
-                                    </span>
-                                    Performance
-                                </a>
-                                <a href="javascript: void(0)"
-                                    class="focus:text-indigo-700 border-b-2 border-transparent focus:border-indigo-700 flex px-5 items-center py-6 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
-                                    <span class="mr-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                            class="icon icon-tabler icon-tabler-code" width="20" height="20"
-                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                            <polyline points="7 8 3 12 7 16"></polyline>
-                                            <polyline points="17 8 21 12 17 16"></polyline>
-                                            <line x1="14" y1="4" x2="10" y2="20"></line>
-                                        </svg>
-                                    </span>
-                                    Deliverables
-                                </a>
-                            </div>
+                        <li>
+                            <a class="nav-link" href="https://github.com/lifeofsoumya/To-Do-List-NodeJS"
+                                target="_blank">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="black" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-github">
+                                    <path
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                    </path>
+                                </svg><span class="nav-title">Github</span></a>
+                        </li>
+                    </ul>
 
 
-
-
-
-                        </div>
-                    </div>
                 </div>
             </nav>
-            <nav>
-                <div class="py-4 px-6 w-full flex xl:hidden justify-between items-center bg-white fixed top-0 z-40">
-                    <div aria-label="logo" role="img" tabindex="0" class="focus:outline-none w-24">
-                        <img src="https://cdn.discordapp.com/attachments/795866620412428330/929326810607550464/access-perk.png"
-                            alt="">
-                    </div>
-                    <div class="flex items-center">
-
-                        <button id="menu" aria-label="open menu"
-                            class="focus:outline-none focus:ring-2 focus:ring-gray-600 rounded-md text-gray-800"
-                            onclick="sidebarHandler(true)">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2"
-                                width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <line x1="4" y1="6" x2="20" y2="6" />
-                                <line x1="4" y1="12" x2="20" y2="12" />
-                                <line x1="4" y1="18" x2="20" y2="18" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <!--Mobile responsive sidebar-->
-                <div class="absolute w-full h-full transform -translate-x-full z-40 xl:hidden" id="mobile-nav">
-                    <div class="bg-gray-800 opacity-50 w-full h-full" onclick="sidebarHandler(false)"></div>
-                    <div
-                        class="w-64 z-40 fixed overflow-y-auto z-40 top-0 bg-white shadow h-full flex-col justify-between xl:hidden pb-4 transition duration-150 ease-in-out">
-                        <div class="px-6 h-full">
-                            <div class="flex flex-col justify-between h-full w-full">
-                                <div>
-
-                                    <ul class="f-m-m">
-                                        <li>
-                                            <a class="cursor-pointer">
-                                                <div class="text-gray-800 pt-10">
-                                                    <div class="flex items-center">
-                                                        <div class="w-6 h-6 md:w-8 md:h-8 text-indigo-700">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler icon-tabler-grid"
-                                                                viewBox="0 0 24 24" stroke-width="1.5"
-                                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                                <rect x="4" y="4" width="6" height="6" rx="1"></rect>
-                                                                <rect x="14" y="4" width="6" height="6" rx="1"></rect>
-                                                                <rect x="4" y="14" width="6" height="6" rx="1"></rect>
-                                                                <rect x="14" y="14" width="6" height="6" rx="1"></rect>
-                                                            </svg>
-                                                        </div>
-                                                        <p tabindex="0"
-                                                            class="focus:outline-none focus:text-indigo-600 text-indigo-700 xl:text-base text-base ml-3">
-                                                            Dashboard</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="cursor-pointer">
-                                                <div class="text-gray-800 pt-8">
-                                                    <div class="flex items-center justify-between">
-                                                        <div class="flex items-center">
-                                                            <div class="w-6 h-6 md:w-8 md:h-8 text-gray-800">
-                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                    class="icon icon-tabler icon-tabler-puzzle"
-                                                                    viewBox="0 0 24 24" stroke-width="1.5"
-                                                                    stroke="currentColor" fill="none"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                    <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                                    <path
-                                                                        d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1">
-                                                                    </path>
-                                                                </svg>
-                                                            </div>
-                                                            <p tabindex="0"
-                                                                class="focus:outline-none focus:text-indigo-600 text-gray-800 xl:text-base md:text-2xl text-base ml-3">
-                                                                Products</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="cursor-pointer">
-                                                <div class="text-gray-800 pt-8">
-                                                    <div class="flex items-center">
-                                                        <div class="w-6 h-6 md:w-8 md:h-8 text-gray-800">
-                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="icon icon-tabler icon-tabler-compass"
-                                                                viewBox="0 0 24 24" stroke-width="1.5"
-                                                                stroke="currentColor" fill="none" stroke-linecap="round"
-                                                                stroke-linejoin="round">
-                                                                <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                                <polyline points="8 16 10 10 16 8 14 14 8 16">
-                                                                </polyline>
-                                                                <circle cx="12" cy="12" r="9"></circle>
-                                                            </svg>
-                                                        </div>
-                                                        <p tabindex="0"
-                                                            class="focus:outline-none focus:text-indigo-600 text-gray-800 xl:text-base md:text-2xl text-base ml-3">
-                                                            Performance</p>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="text-gray-800 pt-8 cursor-pointer">
-                                            <div class="flex items-center justify-between">
-                                                <div class="flex items-center">
-                                                    <div class="w-6 h-6 md:w-8 md:h-8 text-gray-800">
-                                                        <svg xmlns="http://www.w3.org/2000/svg"
-                                                            class="icon icon-tabler icon-tabler-code"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                            <path stroke="none" d="M0 0h24v24H0z"></path>
-                                                            <polyline points="7 8 3 12 7 16"></polyline>
-                                                            <polyline points="17 8 21 12 17 16"></polyline>
-                                                            <line x1="14" y1="4" x2="10" y2="20"></line>
-                                                        </svg>
-                                                    </div>
-                                                    <p tabindex="0"
-                                                        class="focus:outline-none focus:text-indigo-600 text-gray-800 xl:text-base md:text-2xl text-base ml-3">
-                                                        Deliverables</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-
-
-            <!-- Code block ends -->
         </div>
     </div>
 
-    <script>
-        function dropdownHandler(element) {
-            let single = element.getElementsByTagName("ul")[0];
-            single.classList.toggle("hidden");
-        }
-
-        function MenuHandler(el, val) {
-            let MainList = el.parentElement.parentElement.getElementsByTagName("ul")[0];
-            let closeIcon = el.parentElement.parentElement.getElementsByClassName("close-m-menu")[0];
-            let showIcon = el.parentElement.parentElement.getElementsByClassName("show-m-menu")[0];
-            if (val) {
-                MainList.classList.remove("hidden");
-                el.classList.add("hidden");
-                closeIcon.classList.remove("hidden");
-            } else {
-                showIcon.classList.remove("hidden");
-                MainList.classList.add("hidden");
-                el.classList.add("hidden");
-            }
-        }
-        // ------------------------------------------------------
-        let sideBar = document.getElementById("mobile-nav");
-        let menu = document.getElementById("menu");
-        let cross = document.getElementById("cross");
-        const sidebarHandler = (check) => {
-            if (check) {
-                sideBar.style.transform = "translateX(0px)";
-                menu.classList.add("hidden");
-                cross.classList.remove("hidden");
-            } else {
-                sideBar.style.transform = "translateX(-100%)";
-                menu.classList.remove("hidden");
-                cross.classList.add("hidden");
-            }
-        };
-        let list = document.getElementById("list");
-        let chevrondown = document.getElementById("chevrondown");
-        let chevronup = document.getElementById("chevronup");
-        const listHandler = (check) => {
-            if (check) {
-                list.classList.remove("hidden");
-                chevrondown.classList.remove("hidden");
-                chevronup.classList.add("hidden");
-            } else {
-                list.classList.add("hidden");
-                chevrondown.classList.add("hidden");
-                chevronup.classList.remove("hidden");
-            }
-        };
-    </script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
