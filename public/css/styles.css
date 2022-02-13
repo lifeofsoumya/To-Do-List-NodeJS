@@ -125,3 +125,17 @@ html {
       margin-bottom:140px;
     }
   }
+
+  .checkbox{
+    -webkit-appearance: none;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    padding-right:6px;
+    background-image:  url("/assets/trash.png");
+    background-size: cover;
+    border: 2px solid #fff;
+    cursor:pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
