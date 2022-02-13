@@ -129,13 +129,12 @@ html {
   .checkbox{
     -webkit-appearance: none;
     position: relative;
-    width: 25px;
-    height: 25px;
+    width: 26px;
+    height: 26px;
     border-radius: 8px;
     padding-right:6px;
-    background-image:  url("/assets/trash.png");
-    background-size: cover;
+    background-image: url("/assets/trash-bin.png");
+    background-size: 22px ;
     border: 2px solid #fff;
     cursor:pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
