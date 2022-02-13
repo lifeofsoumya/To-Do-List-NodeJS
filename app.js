@@ -106,7 +106,7 @@ app.post("/delete", (req, res)=>{ // route for deleting a task using form onchan
 
 
 app.get("/trash", (req, res) =>{ //asks for trash route
-    res.render("list", {listTitle: "work", newListItems: workItems});
+    res.render("trash", {trashItems: tItems});
 }) 
 
 
