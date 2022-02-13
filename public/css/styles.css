@@ -13,7 +13,6 @@ html {
 } 
   h1 {
     color: #fff;
-    font-size:14px;
     padding: 10px;
     font-weight:400;
   }
@@ -22,7 +21,7 @@ html {
     max-width: 400px;
     margin: 50px auto;
     background: white;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   }
 
@@ -36,6 +35,10 @@ html {
   #heading {
     background-color: var(--purple);
     text-align: center;
+    border-radius: 7px;
+  }
+  #heading h1{
+    font-size:19px;
   }
   
   .item {
