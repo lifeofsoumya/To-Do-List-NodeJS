@@ -144,6 +144,9 @@ app.get("/done", (req, res) =>{ //asks for trash route
     res.render("done", {newListItems: trashItems});
 }) 
 
+app.get("/login", (req, res) =>{ //asks for trash route
+    res.render("login");
+}) 
 
 app.listen(port, ()=>{
     console.log(`Server listening to ${port}`); // server started at port
