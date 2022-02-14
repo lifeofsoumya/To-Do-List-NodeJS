@@ -44,6 +44,11 @@
         .navbar-nav li {
             padding-left: 20px;
         }
+
+        .switcher {
+            padding-top: 9px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -56,6 +61,7 @@
                     <img src="/assets/mainicon.png" alt="Bootstrap" width="30" class="d-inline-block align-top">
                     <span class="nav-title">TO DO LIST</span>
                 </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#toggleMobileMenu" aria-controls="toggleMobileMenu" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -64,6 +70,22 @@
                 <div class="collapse navbar-collapse" id="toggleMobileMenu">
 
                     <ul class="navbar-nav ms-auto text-center">
+                        <li class="switcher">
+                            <svg class="swtch1" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-toggle-left">
+                                <rect x="1" y="5" width="22" height="14" rx="7" ry="7"></rect>
+                                <circle cx="8" cy="12" r="3"></circle>
+                            </svg>
+                            <svg class="hidden swtch2" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-toggle-right">
+                                <rect x="1" y="5" width="22" height="14" rx="7" ry="7"></rect>
+                                <circle cx="16" cy="12" r="3"></circle>
+                            </svg>
+
+
+                        </li>
                         <li>
                             <a class="nav-link" href="/done"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24">
@@ -104,3 +126,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
+
+    <script>
+        var myClr = '#A683E3';
+        document.querySelector('.switcher').addEventListener('click', () => {
+            document.getElementsByTagName('html')[0].style.setProperty('--purple', '#16BA95');
+        })
+    </script>
+
+    <!-- document.querySelector('.switcher').addEventListener('click', () => {
+    if (myClr = '#A683E3') {
+        myClr = '#16BA95';
+    }
+    else if (myClr = '#16BA95') {
+        myClr = '#A683E3';
+    }
+    else {
+        console.log('all theme ok');
+    }
+}) -->
