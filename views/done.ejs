@@ -1,0 +1,27 @@
+<%- include('header'); -%>
+
+
+    <div class="box" id="heading">
+        <h1>
+            Completed Task
+        </h1>
+    </div>
+
+    <div class="box">
+
+        <% newListItems.forEach((item)=>{ %>
+            <form>
+                <div class="item">
+                    <input class="checkbox" type="checkbox" name="checkbox" value="<%=item._id%>"
+                        onChange="this.form.submit()">
+                    <p>
+                        <%= item.name %>
+                    </p>
+                </div>
+            </form>
+            <%})%>
+
+    </div>
+
+
+    <%- include('footer'); -%>
