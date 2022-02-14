@@ -140,6 +140,10 @@ app.get("/trash", (req, res) =>{ //asks for trash route
     res.render("trash", {newListItems: trashItems});
 }) 
 
+app.get("/done", (req, res) =>{ //asks for trash route
+    res.render("done", {newListItems: trashItems});
+}) 
+
 
 app.listen(port, ()=>{
     console.log(`Server listening to ${port}`); // server started at port
