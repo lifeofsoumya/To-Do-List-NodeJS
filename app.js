@@ -33,7 +33,6 @@ const item2 = new Item({
     name: "'+' to Add & Check to Delete Tasks"
 }); 
 
-
 const defaultItems = [item1, item2] // creating an array with previously created items
 
 
@@ -92,8 +91,36 @@ app.post ("/", (req, res) =>{
     // } 
 })
 
+
+
+const trashSchema = { // creating a schema for DB model
+    name: String
+};
+
+const TrashItem = mongoose.model("TrashItem", trashSchema); // creating a model using previous schema, usually models are n
+
+const tItem1 = new TrashItem({ // creating a new trashed item from the Item Model
+    name: "Deleted Items will appear here"
+}); 
+const trashItems = [tItem1]; // init trash array
+
+
+
 app.post("/delete", (req, res)=>{ // route for deleting a task using form onchange this.form.submit
     const checkedItemId = req.body.checkbox; // gets which checkbox was checked in the form and grabs the id
+
+    Item.findById(checkedItemId, function (err, addToTrash) {
+        if(trashItems.length==0){ //checks if the foundItems array is empty or not, if empty then save
+            TrashItem.insertMany(trashItems, function(err){ 
+                if (!err){
+                    console.log('successfully saved to trash'); 
+                    res.redirect('/')
+                }
+                
+            })
+            res.redirect('/'); // redirects to home route after inserting array or skipping inserting
+        }
+    })
 
     Item.findByIdAndRemove(checkedItemId, function(err){ // we must have a callback even if you don't want to check error, else the remove method won't work
         if (!err){
@@ -102,11 +129,15 @@ app.post("/delete", (req, res)=>{ // route for deleting a task using form onchan
         }
         
     })
+
+
+    
+
 })
 
 
 app.get("/trash", (req, res) =>{ //asks for trash route
-    res.render("trash", {trashItems: tItems});
+    res.render("trash", {newListItems: trashItems});
 }) 
 
 
