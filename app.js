@@ -149,18 +149,6 @@ app.get("/login", (req, res) =>{ //asks for trash route
 }) 
 
 app.post('/login', (req, res) => {
-
-    let today = new Date(); // get current date
-
-    let options = {
-        weekday: "long",
-        day: "numeric",
-        month: "long"
-    };
-
-    let day = today.toLocaleDateString("en-US", options); // returns a Date object as a string
-
-    Item.find({}, (err, foundItems)=>{
         
         const sEmail = req.body.email;
         const sPassword = req.body.password;
@@ -171,13 +159,12 @@ app.post('/login', (req, res) => {
         function authCheck() {
             if ( sEmail == userEmail && sPassword == userPw){ 
             console.log('successful login')
-            res.render("list",{listTitle: day, newListItems: foundItems });
+            res.redirect("/");
         }
         else{
             res.render("login")
         }};
         authCheck();
-        })
     
     }
     
