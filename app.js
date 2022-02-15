@@ -140,7 +140,7 @@ app.get("/trash", (req, res) =>{ //asks for trash route
     res.render("trash", {newListItems: trashItems});
 }) 
 
-app.get("/done", (req, res) =>{ //asks for trash route
+app.get("/done", (req, res) =>{ //asks for completed route
     res.render("done", {newListItems: trashItems});
 }) 
 
@@ -150,21 +150,21 @@ app.get("/login", (req, res) =>{ //asks for trash route
 
 app.post('/login', (req, res) => {
         
-        const sEmail = req.body.email;
-        const sPassword = req.body.password;
+        const sEmail = req.body.email; //grabs email using name field in html input form
+        const sPassword = req.body.password; //grabs password using name field in html input form
 
-        const userEmail = 'g@g.g'
-        const userPw = 'g'
-        console.log('before authcheck')
+        const userEmail = 'g@g.g'  //hardcoded email
+        const userPw = 'g'  //hardcoded pw
+        console.log('before authcheck')  //debugging
         function authCheck() {
-            if ( sEmail == userEmail && sPassword == userPw){ 
+            if ( sEmail == userEmail && sPassword == userPw){  //if pw and email matches then open list using / home route
             console.log('successful login')
             res.redirect("/");
         }
         else{
-            res.render("login")
+            res.render("login")     //else again send to login page
         }};
-        authCheck();
+        authCheck();    //calling previous function
     
     }
     
