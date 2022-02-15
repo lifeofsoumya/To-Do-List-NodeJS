@@ -148,6 +148,51 @@ app.get("/login", (req, res) =>{ //asks for trash route
     res.render("login");
 }) 
 
+app.post('/login', (req, res) => {
+
+    let today = new Date(); // get current date
+
+    let options = {
+        weekday: "long",
+        day: "numeric",
+        month: "long"
+    };
+
+    let day = today.toLocaleDateString("en-US", options); // returns a Date object as a string
+
+    Item.find({}, (err, foundItems)=>{
+        
+        const sEmail = req.body.email;
+        const sPassword = req.body.password;
+
+        const userEmail = 'g@g.g'
+        const userPw = 'g'
+        console.log('before authcheck')
+        function authCheck() {
+            if ( sEmail == userEmail && sPassword == userPw){ 
+            console.log('successful login')
+            res.render("list",{listTitle: day, newListItems: foundItems });
+        }
+        else{
+            res.render("login")
+        }};
+        authCheck();
+        })
+    
+    }
+    
+);
+
+
+
+function checkAuth (req, res, next) { // check if login middleware
+    if (req.authCheck()){
+        return next()
+    }
+    res.redirect("/login")
+}
+
+
 app.listen(port, ()=>{
     console.log(`Server listening to ${port}`); // server started at port
 })
