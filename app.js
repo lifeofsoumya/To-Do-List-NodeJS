@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
@@ -17,7 +18,7 @@ app.use(express.static("public")); // use public folder to access static files l
 let workItems = []; //init array for work items list
 
 
-mongoose.connect("mongodb+srv://LearnDB:XMHluSqZjKSCOoaT@cluster0.fsj5n.mongodb.net/toDoList?retryWrites=true&w=majority"); //connecting to the database on mongoDB Atlas
+mongoose.connect(process.env.MONGO_KEY); //connecting to the database on mongoDB Atlas // MONGO_KEY value is stored in env file
 
 const itemsSchema = { // creating a schema for DB model
     name: String
