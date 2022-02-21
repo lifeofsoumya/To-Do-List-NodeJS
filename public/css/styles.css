@@ -137,3 +137,18 @@ html {
     background-size: 22px ;
     cursor:pointer;
 }
+
+/* custom scrollbar */
+
+body::-webkit-scrollbar {
+  width: .7em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: var(--purple);
+}
